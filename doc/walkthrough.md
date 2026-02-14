@@ -43,7 +43,7 @@ python main_etl.py
 ### Step 3: Match Trades (LIFO)
 1.  Open your Google Sheet.
 2.  Wait for the **Trade Tools** menu to appear (refresh if needed).
-3.  Click **Trade Tools** > **Process Trades (LIFO)**.
+3.  Click **Trade Tools** > **Process Trades (LIFO Optimized)**.
 4.  The script will:
     - Read `Raw Imports`.
     - Match Sells against Buys (LIFO).
