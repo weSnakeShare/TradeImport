@@ -1,0 +1,8 @@
+IB: from portal (statement--> transaction history) need to open with firefox
+
+CS: from portal (Transaction history) 
+
+Trading212: from app --> history (select only orders)
+
+
+
