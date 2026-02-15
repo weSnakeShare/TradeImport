@@ -14,11 +14,23 @@ SPREADSHEET_NAME_OR_ID = None # Takes first argument or user input if strictly n
 # Ideally we ask the user for the ID once and store it, or just edit this file.
 # For now, we will ask for input if not found in a config.
 
+
+# account map for testing at MNOPLeung
+# ACCOUNT_MAP = {
+#     'Individual': 'CSlsy',
+#     'U10531644': 'IBlsy',
+#     'from_': 'T212lsy'
+# }
+
+
+# account map for production idata
 ACCOUNT_MAP = {
-    'Individual': 'CSlsy',
-    'U10531644': 'IBlsy',
-    'from_': 'T212lsy'
+    'Individual': 'aaa',  #CS
+    'U10531644': 'lsyIB', #IB
+    'from_': 'T212lsy'    #T212
 }
+
+
 
 def get_sheet_service():
     if not os.path.exists(CREDENTIALS_FILE):

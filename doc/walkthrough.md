@@ -10,11 +10,11 @@ I have built a system to import your trade files from **Schwab**, **Interactive 
 - **Partial Match Fix**: Correctly handles splitting of *newly imported* trades within the same batch.
 - **Orphan Alert**: Warns if Sells cannot be matched to Buys.
 
-### 7. Multi-Sheet & Advanced Features (v3)
-- **T212 Separation**: Trading212 trades now output to `ProcessedTrade2`, while others go to `SampleTrades`.
-- **Fee Enhancement**: Commission now includes **Stamp Duty** and **Reserve Tax** (requires Python re-run).
-- **Smart Formatting**: New rows automatically COPY formulas and formats from the last existing row of the **same currency**.
-- **Currency Mapping**: Currency code is now written to Column Q.
+### 7. Nearest Row Protocol & Dimension Fix (v8)
+- **T212 (LSY) Logic**: Clones from the last row with the **Same Currency**; falls back to the **Nearest Row** if no match is found.
+- **Others (US) Logic**: Always clones from the **Nearest Row** (the last entry before the append position).
+- **Coordinate Safety**: Automatically expands sheet columns (A-X) to prevent "outside dimensions" crashes.
+- **Precision Filter**: Only matches accounts currently present in your "Raw Imports", protecting all other manual or template rows.
 2.  **Google Apps Script (`Code.gs`)**: Runs inside the Google Sheet to match Buy/Sell orders and calculate P&L.
 
 ## Prerequisites
