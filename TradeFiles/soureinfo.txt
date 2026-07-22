@@ -1,8 +1,14 @@
 IB: from portal (statement--> transaction history) need to open with firefox
 
-CS: from portal (Transaction history) 
+CS: from portal (Transaction history)  [e.g. Individual_XXX641_Transactions_20260625-144452.csv]
 
-Trading212: from app --> history (select only orders)
+Trading212: from app --> history (select only orders) [e.g. from_2026-06-11_to_2026-06-30_MTc4Mjg1MzExODk1NA.csv]
+
+
+
+
+
+
 
 
 

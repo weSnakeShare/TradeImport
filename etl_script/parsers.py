@@ -179,9 +179,26 @@ class Trading212Parser(BaseParser):
                     else:
                         continue
                     
-                    # Time: 2026-01-29 16:05:53
-                    date_str = row['Time']
-                    dt = datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S')
+                    # Time: 2026-01-29 16:05:53 or 2026-07-07 13:30:11+00:00
+                    date_str = row.get('Time (UTC)') or row.get('Time')
+                    if not date_str:
+                        raise KeyError("Time")
+                    date_str = date_str.strip()
+
+                    try:
+                        dt = datetime.fromisoformat(date_str)
+                    except ValueError:
+                        for fmt in ('%Y-%m-%d %H:%M:%S%z', '%Y-%m-%d %H:%M:%S', '%Y-%m-%dT%H:%M:%S%z', '%Y-%m-%dT%H:%M:%S'):
+                            try:
+                                dt = datetime.strptime(date_str, fmt)
+                                break
+                            except ValueError:
+                                pass
+                        else:
+                            raise ValueError(f"Time data '{date_str}' does not match expected formats")
+
+                    if dt.tzinfo is not None:
+                        dt = dt.replace(tzinfo=None)
                     
                     symbol = row['Ticker']
                     qty = float(row['No. of shares'])
